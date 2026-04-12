@@ -11,7 +11,7 @@ from sympy.integrals.rationaltools import ratint_logpart
 
 # 定义函数, 接收用户传入的索引, 展示该索引对应的图片
 def show_digit(idx):
-    df = pd.read_csv('D:\develop\PyCharm\code\my_project\data\手写数字识别.csv')
+    df = pd.read_csv('/data/手写数字识别.csv')
     #判断传入的索引是否越界
     if idx< 0 or idx>= len(df) - 1:
         print('error')
@@ -34,7 +34,7 @@ def show_digit(idx):
 
 # 定义函数, 训练模型, 并保存训练好的模型'
 def train_model():
-    df = pd.read_csv('D:\develop\PyCharm\code\my_project\data\手写数字识别.csv')
+    df = pd.read_csv('/data/手写数字识别.csv')
     # 拆分特征列
     x = df.iloc[:,1:]
     # 拆分标签列
@@ -60,9 +60,9 @@ def test_model():
     #加载图片
     x = plt.imread('./data/demo.png')
     #绘制图片
-    # plt.imshow(x, cmap='gray')
-    # plt.show()
-    # print(x)
+    plt.imshow(x, cmap='gray')
+    plt.show()
+    print(x)
     #加载模型
     estimator = joblib.load('./my_model/手写数字识别.pkl')
     #使用模型
